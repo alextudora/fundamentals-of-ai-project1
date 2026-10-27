@@ -71,3 +71,16 @@ def load_graph_from_csv(file_path: str) -> GraphManager:
                 manager.graph_dto.adjacency_list[target] = []
 
     return manager
+
+def load_nodes_from_csv(file_path: str, manager: GraphManager) -> None:
+    with open(file_path, mode='r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            node_id = row['id'].strip()
+            x = float(row['x'].strip())
+            y = float(row['y'].strip())
+            z = float(row['z'].strip()) if 'z' in row and row['z'] else 0.0
+
+            node = NodeDTO(id=node_id, x=x, y=y, z=z)
+            manager.add_node(node)
+            manager.graph_dto.nodes[node_id] = node
