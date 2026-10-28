@@ -1,7 +1,12 @@
 import math
 import time
 import heapq
+import sys
+from pathlib import Path
 from typing import Dict, List, Tuple, Optional
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from src.core.interfaces.search_engine_interface import ISearchEngine
 from src.core.dtos.graph_dto import GraphDTO

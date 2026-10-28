@@ -1,11 +1,16 @@
 import csv
+import sys
+from pathlib import Path
 from typing import List, Set
 
-from .interfaces.graph_interface import IGraph
-from .dtos.graph_dto import GraphDTO
-from .dtos.edge_dto import EdgeDTO
-from .dtos.node_dto import NodeDTO
-from .dtos.user_profile_dto import UserProfileDTO
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from src.core.interfaces.graph_interface import IGraph
+from src.core.dtos.graph_dto import GraphDTO
+from src.core.dtos.edge_dto import EdgeDTO
+from src.core.dtos.node_dto import NodeDTO
+from src.core.dtos.user_profile_dto import UserProfileDTO
 
 
 class GraphManager(IGraph):

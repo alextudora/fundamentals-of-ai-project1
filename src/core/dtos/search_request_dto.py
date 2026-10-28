@@ -1,7 +1,12 @@
 from dataclasses import dataclass, field
+import sys
+from pathlib import Path
 from typing import Optional, Set
 
-from .user_profile_dto import UserProfileDTO
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+
+from src.core.dtos.user_profile_dto import UserProfileDTO
 
 
 @dataclass(frozen=True)

@@ -1,8 +1,13 @@
 from dataclasses import dataclass, field
+import sys
+from pathlib import Path
 from typing import Dict, List
 
-from .edge_dto import EdgeDTO
-from .node_dto import NodeDTO
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+
+from src.core.dtos.edge_dto import EdgeDTO
+from src.core.dtos.node_dto import NodeDTO
 
 
 @dataclass(frozen=True)
