@@ -181,7 +181,16 @@ Install dependencies, if `requirements.txt` is available:
 python -m pip install -r requirements.txt
 ```
 
-Run the application and tests using the commands documented by the project maintainers. The exact entry point and test command should be added once the repository structure is finalized.
+Run the application from the repository root:
+
+```powershell
+python main.py
+```
+
+The interface provides a blank map panel, a `Load` button for selecting two or
+three graph CSV files, and one button for each task loaded from the tasks CSV.
+The map rendering and route calculation are intentionally left to their
+respective modules.
 
 ## 10. Repository Structure
 
