@@ -187,10 +187,12 @@ Run the application from the repository root:
 python main.py
 ```
 
-The interface provides a blank map panel, a `Load` button for selecting two or
-three graph CSV files, and one button for each task loaded from the tasks CSV.
-The map rendering and route calculation are intentionally left to their
-respective modules.
+In the interface, select `edges.csv` and `tasks.csv` (and optionally
+`nodes.csv`). Selecting a task asks whether to use A* or UCS, then generates
+and displays that task's route animation in the right-hand panel. Selecting
+another task in the same session generates its animation as well. The output
+is saved next to `edges.csv` as `graph_animation_3d.mp4` (or `.gif` when FFmpeg
+is unavailable); MP4 playback uses an automatically generated GIF preview.
 
 ## 10. Repository Structure
 
