@@ -334,18 +334,16 @@ class CampusRoutePlannerApp:
                 self.status.set(f"No route found for Task {index + 1} using {algorithm_name}.")
                 return
 
-            self.status.set(f"Generating Task {index + 1} animation with {algorithm_name}...")
+            self.status.set(
+                f"Task {index + 1} | {algorithm_name} | "
+                f"{' -> '.join(response.path)} | {response.total_cost:g} min"
+            )
             self.root.update_idletasks()
             self.player.play(self.loaded_files["edges"], response.path)
         except (OSError, UnicodeError, ValueError, RuntimeError) as error:
             messagebox.showerror("Could not generate graph animation", str(error), parent=self.root)
             self.status.set(f"Task {index + 1} animation failed.")
             return
-
-        self.status.set(
-            f"Task {index + 1} | {algorithm_name} | "
-            f"{' -> '.join(response.path)} | {response.total_cost:g} min"
-        )
 
     def _display_tasks(self) -> None:
         for child in self.task_buttons_frame.winfo_children():
